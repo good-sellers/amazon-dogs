@@ -1,0 +1,2 @@
+# This file ensures the data/dogs directory is tracked in Git
+# while allowing image files to be ignored 

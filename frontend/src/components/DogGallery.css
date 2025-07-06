@@ -1,0 +1,180 @@
+.dog-gallery {
+  padding: 2rem 0;
+}
+
+.gallery-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.gallery-header h2 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.gallery-header p {
+  color: #666;
+  font-size: 1.1rem;
+}
+
+/* 加载状态样式 */
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem;
+  color: #666;
+}
+
+.loading-spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #667eea;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 1rem;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* 错误状态样式 */
+.error-container {
+  text-align: center;
+  padding: 4rem;
+  color: #e74c3c;
+}
+
+.error-container h2 {
+  margin-bottom: 1rem;
+}
+
+.error-container button {
+  background-color: #667eea;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-top: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.error-container button:hover {
+  background-color: #5a6fd8;
+}
+
+/* 空状态样式 */
+.empty-container {
+  text-align: center;
+  padding: 4rem;
+  color: #666;
+}
+
+.empty-container h2 {
+  margin-bottom: 1rem;
+}
+
+/* 瀑布流容器 */
+.masonry-container {
+  column-count: 4;
+  column-gap: 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* 响应式设计 */
+@media (max-width: 1024px) {
+  .masonry-container {
+    column-count: 3;
+  }
+}
+
+@media (max-width: 768px) {
+  .masonry-container {
+    column-count: 2;
+  }
+}
+
+@media (max-width: 480px) {
+  .masonry-container {
+    column-count: 1;
+  }
+}
+
+/* 瀑布流项目 */
+.masonry-item {
+  break-inside: avoid;
+  margin-bottom: 1rem;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.masonry-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* 图片样式 */
+.dog-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.dog-image.loaded {
+  opacity: 1;
+}
+
+/* 图片信息 */
+.image-info {
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f8f9fa;
+  border-top: 1px solid #e9ecef;
+}
+
+.image-number {
+  font-weight: 600;
+  color: #667eea;
+  font-size: 0.9rem;
+}
+
+.image-size {
+  color: #6c757d;
+  font-size: 0.85rem;
+}
+
+/* 图片加载动画 */
+.dog-image {
+  background: linear-gradient(90deg, #f0f0f0 25%, transparent 37%, #f0f0f0 63%);
+  background-size: 400% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+}
+
+.dog-image.loaded {
+  background: none;
+  animation: none;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: -100% 0;
+  }
+} 
