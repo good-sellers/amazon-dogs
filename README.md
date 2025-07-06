@@ -35,6 +35,13 @@ amazon-dogs/
 - 📝 自动生成index.json索引文件
 - 📋 详细的日志记录
 
+### 🧽 水印清洗功能
+- 🎯 智能检测"Meet The dogs of Amazon"水印
+- 🔧 多算法融合：文字检测+对比度分析+边缘检测
+- 🎨 高质量修复：Navier-Stokes图像修复算法
+- 📊 批量处理：200张图片100%成功处理
+- 🔍 效果对比：可视化分析和对比工具
+
 ### React前端
 - 🎨 现代化的瀑布流布局
 - 📱 响应式设计，支持各种设备
@@ -70,6 +77,25 @@ python dog_crawler.py
 - 依次递增数字抓取图片
 - 将图片保存到 `data/dogs/` 目录
 - 生成 `data/dogs/index.json` 索引文件
+
+### 2.5. 清洗水印（新功能🧽）
+
+```bash
+# 测试清洗（推荐先试用）
+python improved_watermark_cleaner.py --test
+
+# 批量清洗所有图片
+python improved_watermark_cleaner.py
+
+# 查看清洗效果对比
+python compare_results.py
+```
+
+水印清洗会：
+- 智能检测并清除"Meet The dogs of Amazon"水印
+- 保持狗狗名字和图片质量
+- 生成清洗后的图片到 `data/cleaned_dogs/` 目录
+- 创建 `data/cleaned_dogs/cleaned_index.json` 索引文件
 
 ### 3. 构建前端
 
@@ -120,11 +146,33 @@ npm run dev
 npm run setup
 ```
 
+## 🧽 水印清洗脚本
+
+```bash
+# 水印分析（了解水印特征）
+python analyze_watermark.py
+
+# 测试清洗效果
+python improved_watermark_cleaner.py --test
+
+# 批量清洗所有图片
+python improved_watermark_cleaner.py
+
+# 生成效果对比图
+python compare_results.py
+
+# 处理单张图片
+python improved_watermark_cleaner.py --single data/dogs/dog_1.jpg
+```
+
 ## 技术栈
 
 ### 后端
-- **Python 3.x**: 爬虫核心
+- **Python 3.x**: 爬虫核心和图像处理
 - **requests**: HTTP请求库
+- **OpenCV**: 计算机视觉和图像处理
+- **NumPy**: 数值计算和数组操作
+- **Matplotlib**: 数据可视化和分析
 - **Node.js**: 服务器运行环境
 - **Express**: Web框架
 
@@ -140,6 +188,14 @@ npm run setup
 2. **存储空间**: 图片文件较大，请确保有足够的存储空间
 3. **网络连接**: 需要稳定的网络连接来下载图片
 4. **浏览器支持**: 建议使用现代浏览器（Chrome、Firefox、Safari、Edge）
+
+### 🧽 水印清洗注意事项
+
+1. **备份重要**: 原始图片保持不变，清洗后图片保存在单独目录
+2. **先测试**: 建议先使用`--test`参数测试清洗效果
+3. **质量检查**: 使用对比工具检查清洗质量
+4. **依赖安装**: 需要安装OpenCV、NumPy等图像处理库
+5. **内存使用**: 批量处理时可能需要较多内存
 
 ## 许可证
 
