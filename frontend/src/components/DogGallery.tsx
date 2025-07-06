@@ -22,8 +22,12 @@ const DogGallery: React.FC = () => {
   useEffect(() => {
     const loadImages = async () => {
       try {
-        // 尝试从相对路径加载索引文件
-        const response = await fetch('/data/dogs/index.json');
+        // 尝试从GitHub Pages或本地服务器加载索引文件
+        const response = await fetch(
+          process.env.NODE_ENV === 'development' 
+            ? '/data/dogs/index.json'
+            : `${process.env.PUBLIC_URL}/index.json`
+        );
         if (!response.ok) {
           throw new Error('无法加载图片索引文件');
         }
@@ -32,7 +36,7 @@ const DogGallery: React.FC = () => {
         setLoading(false);
       } catch (err) {
         console.error('加载图片索引失败:', err);
-        setError('加载图片索引失败，请确保爬虫已运行并生成了索引文件');
+        setError('加载图片索引失败，GitHub Pages部署中的图片直接来自亚马逊服务器');
         setLoading(false);
       }
     };
@@ -89,7 +93,11 @@ const DogGallery: React.FC = () => {
         {images.map((image) => (
           <div key={image.number} className="masonry-item">
             <img
-              src={`/data/dogs/${image.filename}`}
+              src={
+                process.env.NODE_ENV === 'development' 
+                  ? `/data/dogs/${image.filename}`
+                  : image.url
+              }
               alt={`狗狗 ${image.number}`}
               className="dog-image"
               onLoad={handleImageLoad}
