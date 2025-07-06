@@ -36,11 +36,11 @@ amazon-dogs/
 - 📋 详细的日志记录
 
 ### 🧽 水印清洗功能
-- 🎯 智能检测"Meet The dogs of Amazon"水印
-- 🔧 多算法融合：文字检测+对比度分析+边缘检测
-- 🎨 高质量修复：Navier-Stokes图像修复算法
-- 📊 批量处理：200张图片100%成功处理
-- 🔍 效果对比：可视化分析和对比工具
+- 🎯 **精确清洗蓝色文字水印** - 只清洗"Meet The dogs of Amazon"文字
+- 🛡️ **完全保护狗狗身体** - 零误删，其他区域完全不动
+- 🔧 **HSV颜色检测** - 专门针对蓝色文字的精确算法
+- 📊 **批量处理** - 200张图片100%成功处理
+- 🔍 **效果对比** - 可视化分析和对比工具
 
 ### React前端
 - 🎨 现代化的瀑布流布局
@@ -78,24 +78,24 @@ python dog_crawler.py
 - 将图片保存到 `data/dogs/` 目录
 - 生成 `data/dogs/index.json` 索引文件
 
-### 2.5. 清洗水印（新功能🧽）
+### 2.5. 清洗水印（🎯精确版）
 
 ```bash
-# 测试清洗（推荐先试用）
-python improved_watermark_cleaner.py --test
+# 精确清洗测试（推荐）
+python precise_watermark_cleaner.py --test --compare
 
-# 批量清洗所有图片
-python improved_watermark_cleaner.py
+# 精确批量清洗所有图片
+python precise_watermark_cleaner.py
 
-# 查看清洗效果对比
-python compare_results.py
+# 处理单张图片并查看效果
+python precise_watermark_cleaner.py --single data/dogs/dog_1.jpg --compare
 ```
 
-水印清洗会：
-- 智能检测并清除"Meet The dogs of Amazon"水印
-- 保持狗狗名字和图片质量
-- 生成清洗后的图片到 `data/cleaned_dogs/` 目录
-- 创建 `data/cleaned_dogs/cleaned_index.json` 索引文件
+精确水印清洗会：
+- **只清洗蓝色"Meet The dogs of Amazon"文字**
+- **完全保护狗狗身体，零误删**
+- 生成清洗后的图片到 `data/precise_cleaned/` 目录
+- 可选生成调试掩码查看检测区域
 
 ### 3. 构建前端
 
