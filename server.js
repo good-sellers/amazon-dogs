@@ -3,7 +3,7 @@ const path = require('path');
 const fs = require('fs');
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 63780;
 
 // 提供静态文件服务
 app.use('/data', express.static(path.join(__dirname, 'data')));
@@ -29,6 +29,15 @@ app.get('/api/images', (req, res) => {
       res.status(500).json({ error: '无法解析图片索引' });
     }
   });
+});
+
+// 特定的JSON文件路由
+app.get('/cleaned_index.json', (req, res) => {
+  res.sendFile(path.join(__dirname, 'data/precise_cleaned/index.json'));
+});
+
+app.get('/index.json', (req, res) => {
+  res.sendFile(path.join(__dirname, 'data/dogs/index.json'));
 });
 
 // 所有其他请求都返回React应用
