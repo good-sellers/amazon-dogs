@@ -1,103 +1,59 @@
-# Amazon Dogs - 亚马逊狗狗图片爬虫与展示
+# Amazon Dogs - Image Crawler & Gallery
 
-这是一个完整的项目，包含Python爬虫和React前端，用于抓取并展示亚马逊上的狗狗图片。
+<div align="right">
+  <a href="README.zh-CN.md">简体中文</a>
+</div>
 
-## 项目结构
+English | [简体中文](README.zh-CN.md)
 
-```
-amazon-dogs/
-├── dog_crawler.py          # Python爬虫主程序
-├── requirements.txt        # Python依赖
-├── server.js              # Node.js服务器
-├── package.json           # Node.js依赖
-├── data/
-│   └── dogs/              # 存放下载的图片和索引文件
-├── frontend/              # React前端项目
-│   ├── public/
-│   ├── src/
-│   │   ├── components/
-│   │   │   ├── DogGallery.tsx
-│   │   │   └── DogGallery.css
-│   │   ├── App.tsx
-│   │   ├── App.css
-│   │   └── index.tsx
-│   ├── package.json
-│   └── tsconfig.json
-└── README.md
-```
+A complete open-source project that crawls and displays dog images from Amazon's error pages.
 
-## 功能特色
+## 🌟 Features
 
-### Python爬虫
-- 🐕 自动抓取亚马逊狗狗图片（从1开始递增）
-- 📊 智能停止机制（最大1000张或连续100个404）
-- 📱 每个请求间隔3秒，避免请求过于频繁
-- 📝 自动生成index.json索引文件
-- 📋 详细的日志记录
+### Python Crawler
+- 🐕 Automatically fetches dog images from Amazon (starting from 1, incrementing)
+- 📊 Smart stopping mechanism (max 1000 images or 100 consecutive 404s)
+- 📱 3-second delay between requests to avoid rate limiting
+- 📝 Auto-generates `index.json` index file
+- 📊 Detailed logging
 
-### 🧽 水印清洗功能
-- 🎯 **精确清洗蓝色文字水印** - 只清洗"Meet The dogs of Amazon"文字
-- 🛡️ **完全保护狗狗身体** - 零误删，其他区域完全不动
-- 🔧 **HSV颜色检测** - 专门针对蓝色文字的精确算法
-- 📊 **批量处理** - 200张图片100%成功处理
-- 🔍 **效果对比** - 可视化分析和对比工具
+### React Frontend
+- 🎨 Modern masonry layout
+- 📱 Responsive design for all devices
+- 🔄 Image lazy loading with loading animations
+- 🎭 Elegant error handling and loading states
+- 💫 Smooth hover animations
 
-### React前端
-- 🎨 现代化的瀑布流布局
-- 📱 响应式设计，支持各种设备
-- 🔄 图片懒加载和加载动画
-- 🎭 优雅的错误处理和加载状态
-- 💫 流畅的悬停动画效果
+## 🚀 Quick Start
 
-## 快速开始
-
-### 1. 安装依赖
+### 1. Install Dependencies
 
 ```bash
-# 安装Python依赖
+# Install Python dependencies
 pip install -r requirements.txt
 
-# 安装Node.js依赖
+# Install Node.js dependencies
 npm install
 
-# 安装前端依赖
+# Install frontend dependencies
 cd frontend
 npm install
 cd ..
 ```
 
-### 2. 运行爬虫
+### 2. Run Crawler
 
 ```bash
 python dog_crawler.py
 ```
 
-爬虫会：
-- 从 `https://images-na.ssl-images-amazon.com/images/G/01/error/1._TTD_.jpg` 开始
-- 依次递增数字抓取图片
-- 将图片保存到 `data/dogs/` 目录
-- 生成 `data/dogs/index.json` 索引文件
+The crawler will:
+- Start from `https://images-na.ssl-images-amazon.com/images/G/01/error/1._TTD_.jpg`
+- Increment numbers to fetch images
+- Save images to `data/dogs/` directory
+- Generate `data/dogs/index.json` index file
 
-### 2.5. 清洗水印（🎯精确版）
-
-```bash
-# 精确清洗测试（推荐）
-python precise_watermark_cleaner.py --test --compare
-
-# 精确批量清洗所有图片
-python precise_watermark_cleaner.py
-
-# 处理单张图片并查看效果
-python precise_watermark_cleaner.py --single data/dogs/dog_1.jpg --compare
-```
-
-精确水印清洗会：
-- **只清洗蓝色"Meet The dogs of Amazon"文字**
-- **完全保护狗狗身体，零误删**
-- 生成清洗后的图片到 `data/precise_cleaned/` 目录
-- 可选生成调试掩码查看检测区域
-
-### 3. 构建前端
+### 3. Build Frontend
 
 ```bash
 cd frontend
@@ -105,106 +61,76 @@ npm run build
 cd ..
 ```
 
-### 4. 启动服务器
+### 5. Start Server
 
 ```bash
 node server.js
 ```
 
-服务器启动后，访问 `http://localhost:3000` 查看狗狗图片展示页面。
+After starting the server, visit `http://localhost:3000` to view the dog gallery.
 
-## 使用说明
+## 📖 Usage
 
-### 爬虫配置
+### Crawler Configuration
 
-可以在 `dog_crawler.py` 中修改以下参数：
-- `max_number`: 最大图片数量（默认1000）
-- `max_consecutive_404`: 最大连续404次数（默认100）
-- `output_dir`: 图片保存目录（默认data/dogs）
+You can modify these parameters in `dog_crawler.py`:
+- `max_number`: Maximum number of images (default: 1000)
+- `max_consecutive_404`: Maximum consecutive 404s (default: 100)
+- `output_dir`: Image save directory (default: data/dogs)
 
-### 前端特性
+### Frontend Features
 
-- **瀑布流布局**: 自动调整列数（桌面4列，平板3列，手机2列，小屏幕1列）
-- **图片信息**: 显示图片编号和文件大小
-- **加载状态**: 美观的加载动画
-- **错误处理**: 404图片自动隐藏
-- **响应式**: 完美适配各种屏幕尺寸
+- **Masonry Layout**: Auto-adjusts columns (4 desktop, 3 tablet, 2 mobile, 1 small screen)
+- **Image Info**: Shows image number and file size
+- **Loading States**: Beautiful loading animations
+- **Error Handling**: 404 images auto-hidden
+- **Responsive**: Perfectly adapts to all screen sizes
 
-## 开发脚本
+## 🛠️ Development Scripts
 
 ```bash
-# 运行爬虫
+# Run crawler
 npm run crawler
 
-# 构建前端
+# Build frontend
 npm run build
 
-# 启动开发服务器
+# Start dev server
 npm run dev
 
-# 完整安装
+# Full setup
 npm run setup
 ```
 
-## 🧽 水印清洗脚本
+## 🧰 Tech Stack
 
-```bash
-# 水印分析（了解水印特征）
-python analyze_watermark.py
+### Backend
+- **Python 3.x**: Core crawler
+- **requests**: HTTP request library
+- **Node.js**: Server environment
+- **Express**: Web framework
 
-# 测试清洗效果
-python improved_watermark_cleaner.py --test
+### Frontend
+- **React 18**: Frontend framework
+- **TypeScript**: Type safety
+- **CSS3**: Modern styling and animations
+- **Responsive Design**: Adaptive layouts
 
-# 批量清洗所有图片
-python improved_watermark_cleaner.py
+## ⚠️ Important Notes
 
-# 生成效果对比图
-python compare_results.py
+1. **Request Rate**: Crawler has 3-second delays, please don't make too frequent
+2. **Storage**: Images are large, ensure enough storage space
+3. **Network**: Stable connection required for downloading
+4. **Browser**: Modern browsers recommended (Chrome, Firefox, Safari, Edge)
 
-# 处理单张图片
-python improved_watermark_cleaner.py --single data/dogs/dog_1.jpg
-```
+## 📄 License
 
-## 技术栈
+MIT License - See [LICENSE](LICENSE) file
 
-### 后端
-- **Python 3.x**: 爬虫核心和图像处理
-- **requests**: HTTP请求库
-- **OpenCV**: 计算机视觉和图像处理
-- **NumPy**: 数值计算和数组操作
-- **Matplotlib**: 数据可视化和分析
-- **Node.js**: 服务器运行环境
-- **Express**: Web框架
+## 🤝 Contributing
 
-### 前端
-- **React 18**: 前端框架
-- **TypeScript**: 类型安全
-- **CSS3**: 现代样式和动画
-- **Responsive Design**: 响应式布局
-
-## 注意事项
-
-1. **请求频率**: 爬虫设置了3秒间隔，请不要修改得过于频繁
-2. **存储空间**: 图片文件较大，请确保有足够的存储空间
-3. **网络连接**: 需要稳定的网络连接来下载图片
-4. **浏览器支持**: 建议使用现代浏览器（Chrome、Firefox、Safari、Edge）
-
-### 🧽 水印清洗注意事项
-
-1. **备份重要**: 原始图片保持不变，清洗后图片保存在单独目录
-2. **先测试**: 建议先使用`--test`参数测试清洗效果
-3. **质量检查**: 使用对比工具检查清洗质量
-4. **依赖安装**: 需要安装OpenCV、NumPy等图像处理库
-5. **内存使用**: 批量处理时可能需要较多内存
-
-## 许可证
-
-MIT License - 详见 LICENSE 文件
-
-## 贡献
-
-欢迎提交 Issues 和 Pull Requests！
+Issues and Pull Requests welcome!
 
 ---
 
-🐕 享受这些可爱的狗狗图片吧！ 
+🐕 Enjoy these cute dog images!

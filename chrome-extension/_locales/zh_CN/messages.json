@@ -1,0 +1,152 @@
+{
+  "appName": {
+    "message": "亚马逊狗狗图片查看器"
+  },
+  "appDescription": {
+    "message": "查看亚马逊狗狗图片并清洗水印"
+  },
+  "options": {
+    "message": "选项"
+  },
+  "settings": {
+    "message": "设置"
+  },
+  "advancedSettings": {
+    "message": "高级设置"
+  },
+  "language": {
+    "message": "语言"
+  },
+  "chineseSimplified": {
+    "message": "简体中文"
+  },
+  "english": {
+    "message": "English"
+  },
+  "welcomeTitle": {
+    "message": "亚马逊狗狗图片查看器设置"
+  },
+  "generalSettings": {
+    "message": "基本设置"
+  },
+  "autoStart": {
+    "message": "自动开始"
+  },
+  "autoStartDesc": {
+    "message": "页面加载时自动开始查看狗狗图片"
+  },
+  "imageQuality": {
+    "message": "图片质量"
+  },
+  "imageQualityDesc": {
+    "message": "查看图片的默认质量"
+  },
+  "high": {
+    "message": "高质量"
+  },
+  "medium": {
+    "message": "中等质量"
+  },
+  "low": {
+    "message": "低质量"
+  },
+  "cacheImages": {
+    "message": "缓存图片"
+  },
+  "cacheImagesDesc": {
+    "message": "缓存图片以加快加载速度"
+  },
+  "maxCachedImages": {
+    "message": "最大缓存图片数"
+  },
+  "maxCachedImagesDesc": {
+    "message": "最大缓存图片数量"
+  },
+  "watermarkCleaning": {
+    "message": "水印清洗"
+  },
+  "watermarkCleaningDesc": {
+    "message": "自动清洗蓝色文字水印"
+  },
+  "enableWatermarkCleaning": {
+    "message": "启用水印清洗"
+  },
+  "enableWatermarkCleaningDesc": {
+    "message": "自动移除\"Meet The dogs of Amazon\"蓝色文字水印"
+  },
+  "cleaningSensitivity": {
+    "message": "清洗敏感度"
+  },
+  "cleaningSensitivityDesc": {
+    "message": "水印清洗的激进程度"
+  },
+  "veryHigh": {
+    "message": "非常高"
+  },
+  "highSensitivity": {
+    "message": "高"
+  },
+  "mediumSensitivity": {
+    "message": "中"
+  },
+  "lowSensitivity": {
+    "message": "低"
+  },
+  "veryLow": {
+    "message": "非常低"
+  },
+  "apiSettings": {
+    "message": "API设置"
+  },
+  "apiEndpoint": {
+    "message": "API端点"
+  },
+  "apiEndpointDesc": {
+    "message": "获取狗狗图片的API端点"
+  },
+  "requestDelay": {
+    "message": "请求延迟（毫秒）"
+  },
+  "requestDelayDesc": {
+    "message": "图片请求之间的延迟时间（毫秒）"
+  },
+  "maxRetries": {
+    "message": "最大重试次数"
+  },
+  "maxRetriesDesc": {
+    "message": "请求失败时的最大重试次数"
+  },
+  "save": {
+    "message": "保存"
+  },
+  "cancel": {
+    "message": "取消"
+  },
+  "reset": {
+    "message": "重置"
+  },
+  "saved": {
+    "message": "设置保存成功！"
+  },
+  "error": {
+    "message": "保存设置时发生错误。"
+  },
+  "resetConfirm": {
+    "message": "确定要将所有设置重置为默认值吗？"
+  },
+  "success": {
+    "message": "成功"
+  },
+  "confirm": {
+    "message": "确认"
+  },
+  "close": {
+    "message": "关闭"
+  },
+  "customizeExperience": {
+    "message": "自定义您的体验"
+  },
+  "chooseLanguage": {
+    "message": "选择您偏好的语言"
+  }
+}

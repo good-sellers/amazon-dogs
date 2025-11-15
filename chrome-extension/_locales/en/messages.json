@@ -1,0 +1,152 @@
+{
+  "appName": {
+    "message": "Amazon Dogs Viewer"
+  },
+  "appDescription": {
+    "message": "View Amazon dogs images with watermark cleaning"
+  },
+  "options": {
+    "message": "Options"
+  },
+  "settings": {
+    "message": "Settings"
+  },
+  "advancedSettings": {
+    "message": "Advanced Settings"
+  },
+  "language": {
+    "message": "Language"
+  },
+  "chineseSimplified": {
+    "message": "简体中文"
+  },
+  "english": {
+    "message": "English"
+  },
+  "welcomeTitle": {
+    "message": "Amazon Dogs Viewer Settings"
+  },
+  "generalSettings": {
+    "message": "General Settings"
+  },
+  "autoStart": {
+    "message": "Auto Start"
+  },
+  "autoStartDesc": {
+    "message": "Automatically start viewing dogs on page load"
+  },
+  "imageQuality": {
+    "message": "Image Quality"
+  },
+  "imageQualityDesc": {
+    "message": "Default image quality for viewing"
+  },
+  "high": {
+    "message": "High"
+  },
+  "medium": {
+    "message": "Medium"
+  },
+  "low": {
+    "message": "Low"
+  },
+  "cacheImages": {
+    "message": "Cache Images"
+  },
+  "cacheImagesDesc": {
+    "message": "Cache images for faster loading"
+  },
+  "maxCachedImages": {
+    "message": "Max Cached Images"
+  },
+  "maxCachedImagesDesc": {
+    "message": "Maximum number of images to cache"
+  },
+  "watermarkCleaning": {
+    "message": "Watermark Cleaning"
+  },
+  "watermarkCleaningDesc": {
+    "message": "Automatically clean blue text watermarks"
+  },
+  "enableWatermarkCleaning": {
+    "message": "Enable Watermark Cleaning"
+  },
+  "enableWatermarkCleaningDesc": {
+    "message": "Remove 'Meet The dogs of Amazon' blue text watermarks automatically"
+  },
+  "cleaningSensitivity": {
+    "message": "Cleaning Sensitivity"
+  },
+  "cleaningSensitivityDesc": {
+    "message": "How aggressively to clean watermarks"
+  },
+  "veryHigh": {
+    "message": "Very High"
+  },
+  "highSensitivity": {
+    "message": "High"
+  },
+  "mediumSensitivity": {
+    "message": "Medium"
+  },
+  "lowSensitivity": {
+    "message": "Low"
+  },
+  "veryLow": {
+    "message": "Very Low"
+  },
+  "apiSettings": {
+    "message": "API Settings"
+  },
+  "apiEndpoint": {
+    "message": "API Endpoint"
+  },
+  "apiEndpointDesc": {
+    "message": "The API endpoint for fetching dog images"
+  },
+  "requestDelay": {
+    "message": "Request Delay (ms)"
+  },
+  "requestDelayDesc": {
+    "message": "Delay between image requests in milliseconds"
+  },
+  "maxRetries": {
+    "message": "Max Retries"
+  },
+  "maxRetriesDesc": {
+    "message": "Maximum number of retry attempts for failed requests"
+  },
+  "save": {
+    "message": "Save"
+  },
+  "cancel": {
+    "message": "Cancel"
+  },
+  "reset": {
+    "message": "Reset"
+  },
+  "saved": {
+    "message": "Settings saved successfully!"
+  },
+  "error": {
+    "message": "An error occurred while saving settings."
+  },
+  "resetConfirm": {
+    "message": "Are you sure you want to reset all settings to default?"
+  },
+  "success": {
+    "message": "Success"
+  },
+  "confirm": {
+    "message": "Confirm"
+  },
+  "close": {
+    "message": "Close"
+  },
+  "customizeExperience": {
+    "message": "Customize your experience"
+  },
+  "chooseLanguage": {
+    "message": "Choose your preferred language"
+  }
+}

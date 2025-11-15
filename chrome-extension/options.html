@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n="options">Options</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      overflow: hidden;
+    }
+
+    .header {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 30px;
+      text-align: center;
+    }
+
+    .header h1 {
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    .header p {
+      opacity: 0.9;
+      font-size: 14px;
+    }
+
+    .content {
+      padding: 30px;
+    }
+
+    .section {
+      margin-bottom: 35px;
+      padding: 25px;
+      background: #f8f9fa;
+      border-radius: 8px;
+      border-left: 4px solid #667eea;
+    }
+
+    .section-title {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 15px;
+      color: #333;
+    }
+
+    .section-description {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+
+    .setting-group {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .setting-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px;
+      background: white;
+      border-radius: 6px;
+      border: 1px solid #e0e0e0;
+      transition: all 0.3s ease;
+    }
+
+    .setting-item:hover {
+      border-color: #667eea;
+      box-shadow: 0 2px 8px rgba(102, 126, 234, 0.1);
+    }
+
+    .setting-info {
+      flex: 1;
+    }
+
+    .setting-label {
+      font-weight: 500;
+      color: #333;
+      margin-bottom: 5px;
+      font-size: 14px;
+    }
+
+    .setting-description {
+      font-size: 12px;
+      color: #666;
+    }
+
+    .setting-control {
+      min-width: 200px;
+    }
+
+    .select, .input, .checkbox {
+      padding: 8px 12px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 14px;
+      transition: all 0.3s ease;
+    }
+
+    .select:focus, .input:focus {
+      outline: none;
+      border-color: #667eea;
+      box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    }
+
+    .checkbox-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .checkbox {
+      width: 18px;
+      height: 18px;
+      cursor: pointer;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 10px;
+      justify-content: flex-end;
+      margin-top: 25px;
+      padding-top: 20px;
+      border-top: 1px solid #e0e0e0;
+    }
+
+    .btn {
+      padding: 12px 24px;
+      border: none;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+    }
+
+    .btn-secondary {
+      background: #f0f0f0;
+      color: #333;
+    }
+
+    .btn-secondary:hover {
+      background: #e0e0e0;
+    }
+
+    .btn-danger {
+      background: #dc3545;
+      color: white;
+    }
+
+    .btn-danger:hover {
+      background: #c82333;
+    }
+
+    .alert {
+      padding: 15px;
+      border-radius: 6px;
+      margin-bottom: 20px;
+      display: none;
+    }
+
+    .alert-success {
+      background: #d4edda;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+    }
+
+    .alert-error {
+      background: #f8d7da;
+      color: #721c24;
+      border: 1px solid #f5c6cb;
+    }
+
+    .alert.show {
+      display: block;
+      animation: slideIn 0.3s ease;
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal.show {
+      display: flex;
+    }
+
+    .modal-content {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      max-width: 400px;
+      width: 90%;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .modal-title {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 15px;
+      color: #333;
+    }
+
+    .modal-message {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+
+    .modal-buttons {
+      display: flex;
+      gap: 10px;
+      justify-content: flex-end;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1 data-i18n="welcomeTitle">Amazon Dogs Viewer Settings</h1>
+      <p data-i18n="customizeExperience">Customize your experience</p>
+    </div>
+
+    <div class="content">
+      <div id="alert" class="alert"></div>
+
+      <!-- General Settings Section -->
+      <div class="section">
+        <h2 class="section-title" data-i18n="generalSettings">General Settings</h2>
+        <p class="section-description" data-i18n="generalSettings">Basic configuration options for the extension.</p>
+
+        <div class="setting-group">
+          <div class="setting-item">
+            <div class="setting-info">
+              <div class="setting-label" data-i18n="language">Language</div>
+              <div class="setting-description" data-i18n="chooseLanguage">Choose your preferred language</div>
+            </div>
+            <div class="setting-control">
+              <select id="language" class="select">
+                <option value="en" data-i18n="english">English</option>
+                <option value="zh_CN" data-i18n="chineseSimplified">简体中文</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="setting-item">
+            <div class="setting-info">
+              <div class="setting-label" data-i18n="autoStart">Auto Start</div>
+              <div class="setting-description" data-i18n="autoStartDesc">Automatically start viewing dogs on page load</div>
+            </div>
+            <div class="setting-control">
+              <div class="checkbox-container">
+                <input type="checkbox" id="autoStart" class="checkbox">
+              </div>
+            </div>
+          </div>
+
+          <div class="setting-item">
+            <div class="setting-info">
+              <div class="setting-label" data-i18n="imageQuality">Image Quality</div>
+              <div class="setting-description" data-i18n="imageQualityDesc">Default image quality for viewing</div>
+            </div>
+            <div class="setting-control">
+              <select id="imageQuality" class="select">
+                <option value="high" data-i18n="high">High</option>
+                <option value="medium" data-i18n="medium">Medium</option>
+                <option value="low" data-i18n="low">Low</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="setting-item">
+            <div class="setting-info">
+              <div class="setting-label" data-i18n="cacheImages">Cache Images</div>
+              <div class="setting-description" data-i18n="cacheImagesDesc">Cache images for faster loading</div>
+            </div>
+            <div class="setting-control">
+              <div class="checkbox-container">
+                <input type="checkbox" id="cacheImages" class="checkbox">
+              </div>
+            </div>
+          </div>
+
+          <div class="setting-item">
+            <div class="setting-info">
+              <div class="setting-label" data-i18n="maxCachedImages">Max Cached Images</div>
+              <div class="setting-description" data-i18n="maxCachedImagesDesc">Maximum number of images to cache</div>
+            </div>
+            <div class="setting-control">
+              <input type="number" id="maxCachedImages" class="input" min="10" max="1000" value="100">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Advanced Settings Section -->
+      <div class="section">
+        <h2 class="section-title" data-i18n="advancedSettings">Advanced Settings</h2>
+        <p class="section-description" data-i18n="advancedSettings">Advanced configuration for power users.</p>
+
+        <div class="setting-group">
+          <div class="setting-item">
+            <div class="setting-info">
+              <div class="setting-label" data-i18n="enableWatermarkCleaning">Enable Watermark Cleaning</div>
+              <div class="setting-description" data-i18n="enableWatermarkCleaningDesc">Remove 'Meet The dogs of Amazon' blue text watermarks automatically</div>
+            </div>
+            <div class="setting-control">
+              <div class="checkbox-container">
+                <input type="checkbox" id="enableWatermarkCleaning" class="checkbox">
+              </div>
+            </div>
+          </div>
+
+          <div class="setting-item">
+            <div class="setting-info">
+              <div class="setting-label" data-i18n="cleaningSensitivity">Cleaning Sensitivity</div>
+              <div class="setting-description" data-i18n="cleaningSensitivityDesc">How aggressively to clean watermarks</div>
+            </div>
+            <div class="setting-control">
+              <select id="cleaningSensitivity" class="select">
+                <option value="very_high" data-i18n="veryHigh">Very High</option>
+                <option value="high" data-i18n="highSensitivity">High</option>
+                <option value="medium" data-i18n="mediumSensitivity">Medium</option>
+                <option value="low" data-i18n="lowSensitivity">Low</option>
+                <option value="very_low" data-i18n="veryLow">Very Low</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="setting-item">
+            <div class="setting-info">
+              <div class="setting-label" data-i18n="apiEndpoint">API Endpoint</div>
+              <div class="setting-description" data-i18n="apiEndpointDesc">The API endpoint for fetching dog images</div>
+            </div>
+            <div class="setting-control">
+              <input type="text" id="apiEndpoint" class="input" value="https://images-na.ssl-images-amazon.com/images/G/01/error/">
+            </div>
+          </div>
+
+          <div class="setting-item">
+            <div class="setting-info">
+              <div class="setting-label" data-i18n="requestDelay">Request Delay (ms)</div>
+              <div class="setting-description" data-i18n="requestDelayDesc">Delay between image requests in milliseconds</div>
+            </div>
+            <div class="setting-control">
+              <input type="number" id="requestDelay" class="input" min="0" max="10000" value="3000">
+            </div>
+          </div>
+
+          <div class="setting-item">
+            <div class="setting-info">
+              <div class="setting-label" data-i18n="maxRetries">Max Retries</div>
+              <div class="setting-description" data-i18n="maxRetriesDesc">Maximum number of retry attempts for failed requests</div>
+            </div>
+            <div class="setting-control">
+              <input type="number" id="maxRetries" class="input" min="0" max="10" value="3">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="buttons">
+        <button id="resetBtn" class="btn btn-danger" data-i18n="reset">Reset</button>
+        <button id="cancelBtn" class="btn btn-secondary" data-i18n="cancel">Cancel</button>
+        <button id="saveBtn" class="btn btn-primary" data-i18n="save">Save</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Confirmation Modal -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <h3 class="modal-title" data-i18n="confirm">Confirm</h3>
+      <p class="modal-message" data-i18n="resetConfirm">Are you sure you want to reset all settings to default?</p>
+      <div class="modal-buttons">
+        <button id="modalCancel" class="btn btn-secondary" data-i18n="cancel">Cancel</button>
+        <button id="modalConfirm" class="btn btn-danger" data-i18n="confirm">Confirm</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="i18n.js"></script>
+  <script src="options.js"></script>
+</body>
+</html>
