@@ -26,22 +26,30 @@
 
 ## 🚀 快速开始
 
-### 1. 安装依赖
+### ⚡ 立即使用（推荐）
+
+项目已经包含了200张狗狗图片，无需运行爬虫即可直接使用：
 
 ```bash
-# 安装Python依赖
+# 1. 安装依赖
 pip install -r requirements.txt
-
-# 安装Node.js依赖
 npm install
 
-# 安装前端依赖
+# 2. 构建前端
 cd frontend
 npm install
 cd ..
+npm run build
+
+# 3. 启动服务器
+node server.js
 ```
 
-### 2. 运行爬虫
+访问 `http://localhost:3000` 即可查看狗狗图片！
+
+### 🔄 可选：运行爬虫抓取新图片
+
+如果你想抓取更多狗狗图片，可以运行爬虫：
 
 ```bash
 python dog_crawler.py

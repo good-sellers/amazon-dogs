@@ -26,22 +26,30 @@ A complete open-source project that crawls and displays dog images from Amazon's
 
 ## 🚀 Quick Start
 
-### 1. Install Dependencies
+### ⚡ 立即使用（推荐）
+
+项目已经包含了200张狗狗图片，无需运行爬虫即可直接使用：
 
 ```bash
-# Install Python dependencies
+# 1. 安装依赖
 pip install -r requirements.txt
-
-# Install Node.js dependencies
 npm install
 
-# Install frontend dependencies
+# 2. 构建前端
 cd frontend
 npm install
 cd ..
+npm run build
+
+# 3. 启动服务器
+node server.js
 ```
 
-### 2. Run Crawler
+访问 `http://localhost:3000` 即可查看狗狗图片！
+
+### 🔄 可选：运行爬虫抓取新图片
+
+如果你想抓取更多狗狗图片，可以运行爬虫：
 
 ```bash
 python dog_crawler.py
