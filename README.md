@@ -1,10 +1,10 @@
 # Amazon Dogs - Image Crawler & Gallery
 
 <div align="right">
-  <a href="README.zh-CN.md">简体中文</a>
+  <a href="README.zh-CN.md">中文 (Chinese)</a>
 </div>
 
-English | [简体中文](README.zh-CN.md)
+English | [中文 (Chinese)](README.zh-CN.md)
 
 A complete open-source project that crawls and displays dog images from Amazon's error pages.
 
@@ -26,30 +26,30 @@ A complete open-source project that crawls and displays dog images from Amazon's
 
 ## 🚀 Quick Start
 
-### ⚡ 立即使用（推荐）
+### ⚡ Quick Start (Recommended)
 
-项目已经包含了200张狗狗图片，无需运行爬虫即可直接使用：
+The project already includes 200 dog images, so you can use it immediately without running the crawler:
 
 ```bash
-# 1. 安装依赖
+# 1. Install dependencies
 pip install -r requirements.txt
 npm install
 
-# 2. 构建前端
+# 2. Build frontend
 cd frontend
 npm install
 cd ..
 npm run build
 
-# 3. 启动服务器
+# 3. Start server
 node server.js
 ```
 
-访问 `http://localhost:3000` 即可查看狗狗图片！
+Visit `http://localhost:3000` to view the dog images!
 
-### 🔄 可选：运行爬虫抓取新图片
+### 🔄 Optional: Run Crawler for New Images
 
-如果你想抓取更多狗狗图片，可以运行爬虫：
+If you want to fetch more dog images, you can run the crawler:
 
 ```bash
 python dog_crawler.py

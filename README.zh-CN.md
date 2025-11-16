@@ -26,7 +26,7 @@
 
 ## 🚀 快速开始
 
-### ⚡ 立即使用（推荐）
+### ⚡ 快速开始（推荐）
 
 项目已经包含了200张狗狗图片，无需运行爬虫即可直接使用：
 
@@ -122,7 +122,7 @@ npm run setup
 - **React 18**: 前端框架
 - **TypeScript**: 类型安全
 - **CSS3**: 现代样式和动画
-- **Responsive Design**: 响应式布局
+- **响应式设计**: 自适应布局
 
 ## ⚠️ 注意事项
 
@@ -133,11 +133,11 @@ npm run setup
 
 ## 📄 许可证
 
-MIT License - 详见 [LICENSE](LICENSE) 文件
+MIT许可证 - 详见 [LICENSE](LICENSE) 文件
 
 ## 🤝 贡献
 
-欢迎提交 Issues 和 Pull Requests！
+欢迎提交 问题(Issues) 和 拉取请求(Pull Requests)！
 
 ---
 
