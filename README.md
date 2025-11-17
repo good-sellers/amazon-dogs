@@ -1,144 +1,62 @@
-# Amazon Dogs - Image Crawler & Gallery
+# Amazon Dogs - Dog Image Downloader
 
-<div align="right">
-  <a href="README.zh-CN.md">中文</a>
-</div>
+A simple open-source tool for downloading dog images from Amazon's 404 error pages.
 
-English | [中文](README.zh-CN.md)
+## What is this project?
 
-A complete open-source project that crawls and displays dog images from Amazon's error pages.
+This project downloads dog images that appear on Amazon's error pages. These images are accessible via predictable URLs like:
+- https://images-na.ssl-images-amazon.com/images/G/01/error/1._TTD_.jpg
+- https://images-na.ssl-images-amazon.com/images/G/01/error/2._TTD_.jpg
+- And so on...
 
-## 🌟 Features
+The project includes 200 pre-downloaded dog images ready to use.
 
-### Python Crawler
-- Automatically fetches dog images from Amazon (starting from 1, incrementing)
-- Smart stopping mechanism (max 1000 images or 100 consecutive 404s)
-- 3-second delay between requests to avoid rate limiting
-- Auto-generates index.json index file
-- Detailed logging
+## How to use the downloaded images?
 
-### React Frontend
-- Modern masonry layout
-- Responsive design for all devices
-- Image lazy loading with loading animations
-- Elegant error handling and loading states
-- Smooth hover animations
-
-## 🚀 Quick Start
-
-### Quick Start (Recommended)
-
-The project already includes 200 dog images, so you can use it immediately without running the crawler:
+### Option 1: Clone the entire repository
 
 ```bash
-# 1. Install dependencies
-pip install -r requirements.txt
-npm install
-
-# 2. Build frontend
-cd frontend
-npm install
-cd ..
-npm run build
-
-# 3. Start server
-node server.js
+git clone https://github.com/good-sellers/amazon-dogs.git
+cd amazon-dogs
 ```
 
-Visit http://localhost:3000 to view the dog images!
+The downloaded images are located in `data/cleaned_dogs/images/`:
+- 200 dog images (cleaned_dog_1.jpg to cleaned_dog_200.jpg)
+- Index file: `data/cleaned_dogs/cleaned_index.json`
 
-### Optional: Run Crawler for New Images
+### Option 2: Download images only
 
-If you want to fetch more dog images, you can run the crawler:
+You can download just the images from the repository without cloning the entire codebase.
+
+## How does it work?
+
+The downloader works by:
+
+1. **URL Pattern**: Amazon uses a predictable URL pattern for error page images
+   - Base URL: `https://images-na.ssl-images-amazon.com/images/G/01/error/`
+   - File format: `{number}._TTD_.jpg` (starting from 1)
+
+2. **Sequential Fetching**: The crawler tries image URLs in sequence (1, 2, 3, 4...)
+
+3. **Smart Stopping**: Stops when:
+   - Reaches max number of images (default: 1000)
+   - Gets 100 consecutive 404 errors
+   - 3-second delay between requests to avoid rate limiting
+
+4. **Image Storage**: Successfully downloaded images are saved to `data/dogs/` with an index file
+
+## Optional: Run the crawler yourself
+
+If you want to download more images:
 
 ```bash
+# Install dependencies
+pip install -r requirements.txt
+
+# Run the crawler
 python dog_crawler.py
 ```
 
-The crawler will:
-- Start from https://images-na.ssl-images-amazon.com/images/G/01/error/1._TTD_.jpg
-- Increment numbers to fetch images
-- Save images to data/dogs/ directory
-- Generate data/dogs/index.json index file
+## License
 
-### Build Frontend
-
-```bash
-cd frontend
-npm run build
-cd ..
-```
-
-### Start Server
-
-```bash
-node server.js
-```
-
-After starting the server, visit http://localhost:3000 to view the dog gallery.
-
-## 📖 Usage
-
-### Crawler Configuration
-
-You can modify these parameters in dog_crawler.py:
-- max_number: Maximum number of images (default: 1000)
-- max_consecutive_404: Maximum consecutive 404s (default: 100)
-- output_dir: Image save directory (default: data/dogs)
-
-### Frontend Features
-
-- Masonry Layout: Auto-adjusts columns (4 desktop, 3 tablet, 2 mobile, 1 small screen)
-- Image Info: Shows image number and file size
-- Loading States: Beautiful loading animations
-- Error Handling: 404 images auto-hidden
-- Responsive: Perfectly adapts to all screen sizes
-
-## 🛠️ Development Scripts
-
-```bash
-# Run crawler
-npm run crawler
-
-# Build frontend
-npm run build
-
-# Start dev server
-npm run dev
-
-# Full setup
-npm run setup
-```
-
-## 🧰 Tech Stack
-
-### Backend
-- Python 3.x: Core crawler
-- requests: HTTP request library
-- Node.js: Server environment
-- Express: Web framework
-
-### Frontend
-- React 18: Frontend framework
-- TypeScript: Type safety
-- CSS3: Modern styling and animations
-- Responsive Design: Adaptive layouts
-
-## ⚠️ Important Notes
-
-1. Request Rate: Crawler has 3-second delays, please don't make too frequent
-2. Storage: Images are large, ensure enough storage space
-3. Network: Stable connection required for downloading
-4. Browser: Modern browsers recommended (Chrome, Firefox, Safari, Edge)
-
-## 📄 License
-
-MIT License - See LICENSE file
-
-## 🤝 Contributing
-
-Issues and Pull Requests welcome!
-
----
-
-Enjoy these cute dog images!
+MIT License
