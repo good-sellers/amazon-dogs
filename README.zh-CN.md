@@ -1,3 +1,7 @@
+<div align="right">
+  <a href="README.md">English</a>
+</div>
+
 # Amazon Dogs - 狗狗图片下载器
 
 一个简单的开源工具，用于从亚马逊404错误页面下载狗狗图片。

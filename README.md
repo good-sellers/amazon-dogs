@@ -1,3 +1,7 @@
+<div align="right">
+  <a href="README.zh-CN.md">中文</a>
+</div>
+
 # Amazon Dogs - Dog Image Downloader
 
 A simple open-source tool for downloading dog images from Amazon's 404 error pages.
